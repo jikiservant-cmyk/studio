@@ -1,0 +1,35 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-church",
+      "description": "Beautiful modern church building at sunset",
+      "imageUrl": "https://picsum.photos/seed/church1/1200/800",
+      "imageHint": "church building"
+    },
+    {
+      "id": "live-stream",
+      "description": "Live sermon streaming view",
+      "imageUrl": "https://picsum.photos/seed/sermon1/1280/720",
+      "imageHint": "church sermon"
+    },
+    {
+      "id": "worship-band",
+      "description": "Church worship band performing",
+      "imageUrl": "https://picsum.photos/seed/worship1/800/600",
+      "imageHint": "worship band"
+    },
+    {
+      "id": "community-gathering",
+      "description": "People gathered in a church community hall",
+      "imageUrl": "https://picsum.photos/seed/community1/800/600",
+      "imageHint": "church community"
+    },
+    {
+      "id": "scripture-study",
+      "description": "Open Bible on a wooden table",
+      "imageUrl": "https://picsum.photos/seed/bible1/800/600",
+      "imageHint": "open bible"
+    }
+  ]
+}
