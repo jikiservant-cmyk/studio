@@ -10,7 +10,6 @@ const navLinks = [
   { name: "About Us", href: "/" },
   { name: "Events", href: "/events" },
   { name: "Our Ministries", href: "/sermons" },
-  { name: "Podcast", href: "#" },
   { name: "Donate", href: "/donate" },
   { name: "Visit Us", href: "/contact" },
 ]
@@ -20,38 +19,35 @@ export function Navbar() {
   const pathname = usePathname()
 
   return (
-    <header className="w-full z-50">
+    <header className="w-full z-50 sticky top-0">
       {/* Pink Top Bar */}
       <div className="h-2 w-full bg-[#D12E8B]" />
       
-      <nav className="bg-[#2D2B44] text-white">
+      <nav className="bg-[#2D2B44] text-white shadow-xl">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex h-24 items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <div className="relative h-12 w-12 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-10 w-10">
-                  <path d="M7 13c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V9a2 2 0 0 0-2-2h-2V5a1 1 0 0 0-2 0v2H9a2 2 0 0 0-2 2v4z" />
-                  <path d="M12 17v3" />
-                  <path d="M12 3v1" />
-                  <path d="M7 21h10" />
-                  <circle cx="12" cy="12" r="10" strokeOpacity="0.2" />
-                </svg>
-              </div>
+            <Link href="/" className="flex flex-col items-start group">
+              <span className="text-3xl font-black uppercase tracking-tighter leading-[0.8] group-hover:text-[#D12E8B] transition-colors">
+                NCF<br />CHURCH
+              </span>
             </Link>
 
             {/* Desktop Links */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium tracking-wide transition-colors hover:text-[#D12E8B]",
+                    "text-sm font-black uppercase tracking-widest transition-all hover:text-[#D12E8B] relative py-2",
                     pathname === link.href ? "text-[#D12E8B]" : "text-white"
                   )}
                 >
                   {link.name}
+                  {pathname === link.href && (
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[#D12E8B]" />
+                  )}
                 </Link>
               ))}
               <button className="p-2 hover:text-[#D12E8B] transition-colors">
@@ -61,15 +57,12 @@ export function Navbar() {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-4">
-               <button className="p-2">
-                <Search className="h-5 w-5" />
-              </button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
-                className="p-2"
+                className="p-2 text-[#D12E8B]"
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
               </button>
             </div>
           </div>
@@ -77,13 +70,13 @@ export function Navbar() {
 
         {/* Mobile Links */}
         {isOpen && (
-          <div className="md:hidden bg-[#2D2B44] border-t border-white/10 px-4 py-4 space-y-4">
+          <div className="md:hidden bg-[#2D2B44] border-t border-white/10 px-6 py-8 space-y-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "block text-lg font-medium",
+                  "block text-2xl font-black uppercase tracking-widest",
                   pathname === link.href ? "text-[#D12E8B]" : "text-white"
                 )}
                 onClick={() => setIsOpen(false)}
