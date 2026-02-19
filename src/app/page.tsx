@@ -1,13 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
-import { PlayCircle, Calendar, BookOpen, Heart, ArrowRight } from "lucide-react"
+import { PlayCircle, Calendar, Heart, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 
 export default function Home() {
   const heroImg = PlaceHolderImages.find(img => img.id === 'hero-church')
-  const studyImg = PlaceHolderImages.find(img => img.id === 'scripture-study')
 
   return (
     <div className="flex flex-col w-full">
@@ -67,59 +66,19 @@ export default function Home() {
               delay="0.2s"
             />
             <FeatureCard
-              title="Scripture AI"
-              description="Get guidance and answers from the Bible using our AI tool."
-              icon={BookOpen}
-              href="/scripture-finder"
-              delay="0.3s"
-            />
-            <FeatureCard
               title="Give"
               description="Support our mission through safe and secure online giving."
               icon={Heart}
               href="/donate"
+              delay="0.3s"
+            />
+            <FeatureCard
+              title="Contact"
+              description="Reach out for prayer requests or general inquiries."
+              icon={Mail}
+              href="/contact"
               delay="0.4s"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Scripture AI Callout */}
-      <section className="py-20 bg-primary text-primary-foreground overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 space-y-6 fade-in">
-              <h2 className="font-headline text-4xl font-bold">Deepen Your Understanding</h2>
-              <p className="text-lg text-primary-foreground/80 font-body">
-                Have questions about faith? Our AI Scripture Finder is designed to help you navigate the Word of God by providing relevant verses and theological insights tailored to your curiosity.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-center space-x-3">
-                  <div className="bg-secondary p-1 rounded-full"><ArrowRight className="h-4 w-4 text-secondary-foreground" /></div>
-                  <span>Ask any question about faith or life</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="bg-secondary p-1 rounded-full"><ArrowRight className="h-4 w-4 text-secondary-foreground" /></div>
-                  <span>Receive curated Bible verses</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="bg-secondary p-1 rounded-full"><ArrowRight className="h-4 w-4 text-secondary-foreground" /></div>
-                  <span>Explore theological explanations</span>
-                </li>
-              </ul>
-              <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold mt-4">
-                <Link href="/scripture-finder">Try Scripture AI</Link>
-              </Button>
-            </div>
-            <div className="lg:w-1/2 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl fade-in">
-              <Image
-                src={studyImg?.imageUrl || "https://picsum.photos/seed/bible/800/600"}
-                alt="Studying Scripture"
-                fill
-                className="object-cover"
-                data-ai-hint="open bible"
-              />
-            </div>
           </div>
         </div>
       </section>

@@ -3,14 +3,13 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Church, Menu, X, Heart, Calendar, PlayCircle, BookOpen, Mail } from "lucide-react"
+import { Church, Menu, X, Heart, Calendar, PlayCircle, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
   { name: "Sermons", href: "/sermons", icon: PlayCircle },
   { name: "Events", href: "/events", icon: Calendar },
-  { name: "Scripture AI", href: "/scripture-finder", icon: BookOpen },
   { name: "Give", href: "/donate", icon: Heart },
   { name: "Contact", href: "/contact", icon: Mail },
 ]

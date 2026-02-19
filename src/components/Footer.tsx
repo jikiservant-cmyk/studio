@@ -27,7 +27,6 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link href="/sermons" className="hover:text-secondary transition-colors">Sermons</Link></li>
               <li><Link href="/events" className="hover:text-secondary transition-colors">Upcoming Events</Link></li>
-              <li><Link href="/scripture-finder" className="hover:text-secondary transition-colors">Scripture AI</Link></li>
               <li><Link href="/donate" className="hover:text-secondary transition-colors">Give Online</Link></li>
               <li><Link href="/contact" className="hover:text-secondary transition-colors">Prayer Request</Link></li>
             </ul>

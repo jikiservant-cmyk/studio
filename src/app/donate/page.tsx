@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Heart, ShieldCheck, RefreshCw, Smartphone, CreditCard, Banknote } from "lucide-react"
+import { Heart, ShieldCheck, RefreshCw, Smartphone, CreditCard, Banknote, PlayCircle, Church, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
@@ -115,7 +115,7 @@ export default function DonatePage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary text-lg">Digital Ministry</h4>
-                  <p className="text-muted-foreground leading-relaxed">Funding our live streaming services and the Scripture AI tool to reach those who cannot join us in person.</p>
+                  <p className="text-muted-foreground leading-relaxed">Funding our live streaming services to reach those who cannot join us in person, expanding our reach beyond the physical campus.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -148,72 +148,5 @@ export default function DonatePage() {
         </div>
       </div>
     </div>
-  )
-}
-
-function Users(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  )
-}
-
-function PlayCircle(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polygon points="10 8 16 12 10 16 10 8" />
-    </svg>
-  )
-}
-
-function Church(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2" />
-      <path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4" />
-      <path d="M18 5v17" />
-      <path d="M6 5v17" />
-      <circle cx="12" cy="9" r="2" />
-      <path d="M12 2v5" />
-      <path d="M9 4h6" />
-    </svg>
   )
 }
