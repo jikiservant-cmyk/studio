@@ -1,126 +1,110 @@
 import Link from "next/link"
 import Image from "next/image"
-import { PlayCircle, Calendar, Heart, Mail } from "lucide-react"
+import { MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 
 export default function Home() {
-  const heroImg = PlaceHolderImages.find(img => img.id === 'hero-church')
+  const heroImg = PlaceHolderImages.find(img => img.id === 'community-gathering')
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full relative">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[85vh] w-full overflow-hidden flex items-center">
         <Image
-          src={heroImg?.imageUrl || "https://picsum.photos/seed/church/1200/800"}
-          alt="Beacon Church"
+          src={heroImg?.imageUrl || "https://picsum.photos/seed/community1/1200/800"}
+          alt="NCF Church Community"
           fill
           className="object-cover"
           priority
-          data-ai-hint="church building"
+          data-ai-hint="church community"
         />
-        <div className="absolute inset-0 bg-primary/40" />
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl fade-in">
-          <h1 className="font-headline text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-            A Light for the Way Ahead
-          </h1>
-          <p className="text-lg md:text-2xl mb-8 font-body max-w-2xl mx-auto drop-shadow-md">
-            Join a community dedicated to walking the path of faith, serving others, and sharing hope.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold px-8 shadow-lg">
-              <Link href="/sermons">Watch Live Service</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="bg-white/10 text-white border-white hover:bg-white/20 font-bold px-8">
-              <Link href="/events">Upcoming Events</Link>
-            </Button>
+        <div className="absolute inset-0 hero-overlay" />
+        
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-2xl slide-up">
+            <h2 className="text-white text-xl md:text-2xl font-bold tracking-[0.2em] mb-4 uppercase">
+              Welcome To
+            </h2>
+            <h1 className="text-white text-6xl md:text-9xl font-black leading-none mb-8 uppercase tracking-tighter">
+              NCF<br />CHURCH
+            </h1>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button asChild size="lg" className="bg-[#D12E8B] text-white hover:bg-[#B12576] font-bold h-14 px-10">
+                <Link href="/contact">Visit Us Today</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Feature Grid */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-in">
-            <h2 className="font-headline text-4xl font-bold text-primary mb-4">Connect With Us</h2>
-            <div className="w-20 h-1 bg-secondary mx-auto mb-6" />
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Whether you're joining us for the first time or the hundredth, there's a place for you here.
-            </p>
-          </div>
+      {/* Floating Chat Button */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <button className="bg-[#2D2B44] text-white flex items-center space-x-3 px-6 py-4 rounded-lg shadow-2xl hover:scale-105 transition-transform group">
+          <MessageSquare className="h-5 w-5 text-[#D12E8B]" />
+          <span className="font-bold">Let's Chat!</span>
+          <div className="absolute -top-1 -right-1 bg-[#D12E8B] w-4 h-4 rounded-full border-2 border-[#2D2B44]" />
+        </button>
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <FeatureCard
-              title="Sermons"
-              description="Watch live services or catch up on past messages anytime."
-              icon={PlayCircle}
-              href="/sermons"
-              delay="0.1s"
-            />
-            <FeatureCard
-              title="Events"
-              description="Stay active in the community with our upcoming activities."
-              icon={Calendar}
-              href="/events"
-              delay="0.2s"
-            />
-            <FeatureCard
-              title="Give"
-              description="Support our mission through safe and secure online giving."
-              icon={Heart}
-              href="/donate"
-              delay="0.3s"
-            />
-            <FeatureCard
-              title="Contact"
-              description="Reach out for prayer requests or general inquiries."
-              icon={Mail}
-              href="/contact"
-              delay="0.4s"
-            />
+      {/* Introduction Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="fade-in">
+              <h2 className="text-[#2D2B44] text-4xl md:text-5xl font-black mb-6 uppercase leading-tight">
+                Empowering lives through <span className="text-[#D12E8B]">faith and community</span>.
+              </h2>
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                We are a vibrant multi-generational church located in the heart of the community. 
+                Our mission is to share the light of hope and provide a place where everyone 
+                belongs and can grow in their spiritual journey.
+              </p>
+              <Button asChild variant="outline" className="border-[#2D2B44] text-[#2D2B44] hover:bg-[#2D2B44] hover:text-white font-bold h-12">
+                <Link href="/sermons">Learn More About Us</Link>
+              </Button>
+            </div>
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl slide-up" style={{ animationDelay: '0.2s' }}>
+              <Image 
+                src="https://picsum.photos/seed/church-inside/800/600" 
+                alt="Inside NCF Church" 
+                fill 
+                className="object-cover"
+                data-ai-hint="church interior"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Service Times Callout */}
+      {/* Quick Links Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className="font-headline text-3xl font-bold text-primary mb-8">Join Us This Sunday</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-background p-8 rounded-xl shadow-sm border border-border">
-              <h3 className="text-xl font-bold mb-2 text-primary">Contemporary Service</h3>
-              <p className="text-2xl font-bold text-secondary-foreground mb-4">9:00 AM</p>
-              <p className="text-muted-foreground">Modern worship and practical teaching in the Sanctuary.</p>
-            </div>
-            <div className="bg-background p-8 rounded-xl shadow-sm border border-border">
-              <h3 className="text-xl font-bold mb-2 text-primary">Traditional Service</h3>
-              <p className="text-2xl font-bold text-secondary-foreground mb-4">11:00 AM</p>
-              <p className="text-muted-foreground">Classic hymns and choral music in our main chapel.</p>
-            </div>
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Link href="/events" className="group">
+              <div className="bg-white p-10 h-full border-b-4 border-transparent group-hover:border-[#D12E8B] transition-all shadow-sm hover:shadow-xl">
+                <h3 className="text-2xl font-black text-[#2D2B44] mb-4 uppercase">Upcoming Events</h3>
+                <p className="text-muted-foreground mb-4">Discover what's happening at NCF this month.</p>
+                <span className="text-[#D12E8B] font-bold group-hover:translate-x-2 transition-transform inline-block">View Calendar →</span>
+              </div>
+            </Link>
+            <Link href="/sermons" className="group">
+              <div className="bg-white p-10 h-full border-b-4 border-transparent group-hover:border-[#D12E8B] transition-all shadow-sm hover:shadow-xl">
+                <h3 className="text-2xl font-black text-[#2D2B44] mb-4 uppercase">Ministries</h3>
+                <p className="text-muted-foreground mb-4">Find your place in our diverse ministry teams.</p>
+                <span className="text-[#D12E8B] font-bold group-hover:translate-x-2 transition-transform inline-block">Explore More →</span>
+              </div>
+            </Link>
+            <Link href="/donate" className="group">
+              <div className="bg-white p-10 h-full border-b-4 border-transparent group-hover:border-[#D12E8B] transition-all shadow-sm hover:shadow-xl">
+                <h3 className="text-2xl font-black text-[#2D2B44] mb-4 uppercase">Give Online</h3>
+                <p className="text-muted-foreground mb-4">Support our mission safely and securely.</p>
+                <span className="text-[#D12E8B] font-bold group-hover:translate-x-2 transition-transform inline-block">Give Now →</span>
+              </div>
+            </Link>
           </div>
-          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold px-8">
-            <Link href="/contact">Plan Your Visit</Link>
-          </Button>
         </div>
       </section>
     </div>
-  )
-}
-
-function FeatureCard({ title, description, icon: Icon, href, delay }: { title: string, description: string, icon: any, href: string, delay: string }) {
-  return (
-    <Link href={href}>
-      <Card className="h-full hover:shadow-xl transition-all hover:-translate-y-1 duration-300 border-none bg-card shadow-md group overflow-hidden" style={{ animationDelay: delay }}>
-        <div className="h-1 bg-secondary w-0 group-hover:w-full transition-all duration-500" />
-        <CardContent className="p-8 text-center flex flex-col items-center">
-          <div className="bg-muted p-4 rounded-full mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-            <Icon className="h-8 w-8 text-primary group-hover:text-primary-foreground" />
-          </div>
-          <h3 className="font-headline text-2xl font-bold mb-3 text-primary">{title}</h3>
-          <p className="text-muted-foreground leading-relaxed">{description}</p>
-        </CardContent>
-      </Card>
-    </Link>
   )
 }

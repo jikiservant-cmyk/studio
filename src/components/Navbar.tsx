@@ -3,15 +3,16 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Church, Menu, X, Heart, Calendar, PlayCircle, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Menu, X, Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { name: "Sermons", href: "/sermons", icon: PlayCircle },
-  { name: "Events", href: "/events", icon: Calendar },
-  { name: "Give", href: "/donate", icon: Heart },
-  { name: "Contact", href: "/contact", icon: Mail },
+  { name: "About Us", href: "/" },
+  { name: "Events", href: "/events" },
+  { name: "Our Ministries", href: "/sermons" },
+  { name: "Podcast", href: "#" },
+  { name: "Donate", href: "/donate" },
+  { name: "Visit Us", href: "/contact" },
 ]
 
 export function Navbar() {
@@ -19,83 +20,80 @@ export function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2 group">
-              <div className="bg-primary p-1.5 rounded-lg shadow-md group-hover:scale-110 transition-transform">
-                <Church className="h-6 w-6 text-primary-foreground" />
+    <header className="w-full z-50">
+      {/* Pink Top Bar */}
+      <div className="h-2 w-full bg-[#D12E8B]" />
+      
+      <nav className="bg-[#2D2B44] text-white">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex h-24 items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <div className="relative h-12 w-12 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-10 w-10">
+                  <path d="M7 13c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V9a2 2 0 0 0-2-2h-2V5a1 1 0 0 0-2 0v2H9a2 2 0 0 0-2 2v4z" />
+                  <path d="M12 17v3" />
+                  <path d="M12 3v1" />
+                  <path d="M7 21h10" />
+                  <circle cx="12" cy="12" r="10" strokeOpacity="0.2" />
+                </svg>
               </div>
-              <span className="font-headline text-2xl font-bold tracking-tight text-primary">Beacon</span>
             </Link>
-          </div>
 
-          {/* Desktop Links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            {/* Desktop Links */}
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                    pathname === link.href
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                    "text-sm font-medium tracking-wide transition-colors hover:text-[#D12E8B]",
+                    pathname === link.href ? "text-[#D12E8B]" : "text-white"
                   )}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Button asChild variant="secondary" className="ml-4 font-bold shadow-sm">
-                <Link href="/donate">Join Us</Link>
-              </Button>
+              <button className="p-2 hover:text-[#D12E8B] transition-colors">
+                <Search className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center space-x-4">
+               <button className="p-2">
+                <Search className="h-5 w-5" />
+              </button>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle menu"
+                className="p-2"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
             </div>
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
         </div>
-      </div>
 
-      {/* Mobile Links */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-b animate-in slide-in-from-top-4 duration-300">
-          <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+        {/* Mobile Links */}
+        {isOpen && (
+          <div className="md:hidden bg-[#2D2B44] border-t border-white/10 px-4 py-4 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium",
-                  pathname === link.href
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  "block text-lg font-medium",
+                  pathname === link.href ? "text-[#D12E8B]" : "text-white"
                 )}
                 onClick={() => setIsOpen(false)}
               >
-                <link.icon className="h-5 w-5" />
-                <span>{link.name}</span>
+                {link.name}
               </Link>
             ))}
-            <div className="pt-4 px-3">
-              <Button asChild className="w-full font-bold shadow-sm" variant="secondary">
-                <Link href="/donate" onClick={() => setIsOpen(false)}>Give Now</Link>
-              </Button>
-            </div>
           </div>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+    </header>
   )
 }
