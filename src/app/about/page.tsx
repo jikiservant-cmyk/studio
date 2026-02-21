@@ -24,7 +24,7 @@ const team = [
     image: "https://picsum.photos/seed/p2/400/500"
   },
   {
-    name: "Michael Vance",
+    name: "Sebalamu Geoffrey",
     role: "Creative Arts",
     bio: "Crafting modern worship experiences through media and art.",
     image: "https://picsum.photos/seed/p3/400/500"
