@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { KineticHeadline } from "@/components/KineticHeadline"
+import { InkFlowText } from "@/components/InkFlowText"
 
 const upcomingEvents = [
   {
@@ -65,9 +66,9 @@ export default function EventsPage() {
           lines={["Upcoming Events"]} 
           className="text-5xl font-bold text-primary mb-4"
         />
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body fade-in">
+        <InkFlowText className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
           Connect with our community through services, small groups, and special events.
-        </p>
+        </InkFlowText>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -156,9 +157,9 @@ export default function EventsPage() {
               <Users className="h-40 w-40" />
             </div>
             <KineticHeadline lines={["Connect Groups"]} className="text-2xl font-bold mb-4 relative z-10" />
-            <p className="text-primary-foreground/80 mb-6 font-body relative z-10 leading-relaxed">
+            <InkFlowText className="text-primary-foreground/80 mb-6 font-body relative z-10 leading-relaxed">
               Find your place in a smaller community. We have groups meeting throughout the week across the city.
-            </p>
+            </InkFlowText>
             <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 w-full font-bold relative z-10">
               Join a Group
             </Button>

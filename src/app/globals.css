@@ -97,6 +97,33 @@
   animation: kineticReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Ink Flow Animations */
+@keyframes inkFlow {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0% 0;
+    mask-position: 0% 0;
+  }
+}
+
+.ink-flow-mask {
+  -webkit-mask-image: linear-gradient(to right, black 40%, transparent 60%);
+  mask-image: linear-gradient(to right, black 40%, transparent 60%);
+  -webkit-mask-size: 250% 100%;
+  mask-size: 250% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+}
+
+.ink-flow-active {
+  animation: inkFlow 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .hero-overlay {
   background: linear-gradient(to bottom, rgba(45, 43, 68, 0.7) 0%, rgba(45, 43, 68, 0.85) 100%);
 }

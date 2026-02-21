@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 import { KineticHeadline } from "@/components/KineticHeadline"
+import { InkFlowText } from "@/components/InkFlowText"
 
 const pastSermons = [
   {
@@ -62,9 +63,9 @@ export default function SermonsPage() {
           lines={["Sermons"]} 
           className="text-5xl font-bold text-primary mb-4"
         />
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body fade-in">
+        <InkFlowText className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
           Watch our services live or browse through our library of past messages to find inspiration and guidance.
-        </p>
+        </InkFlowText>
       </div>
 
       {/* Live Section */}
@@ -94,9 +95,9 @@ export default function SermonsPage() {
                 lines={["Current Series:", "Foundations of Faith"]} 
                 className="text-3xl font-bold mb-4"
               />
-              <p className="text-primary-foreground/80 mb-6 font-body leading-relaxed fade-in">
+              <InkFlowText className="text-primary-foreground/80 mb-6 font-body leading-relaxed">
                 Join us as we explore the essential pillars that sustain our spiritual walk in a modern world.
-              </p>
+              </InkFlowText>
               <div className="space-y-4 mb-8 fade-in">
                 <div className="flex items-center space-x-3">
                   <User className="h-5 w-5 text-secondary" />

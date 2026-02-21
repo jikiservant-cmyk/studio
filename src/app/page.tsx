@@ -7,6 +7,7 @@ import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 import { ImageReveal } from "@/components/ImageReveal"
 import { KineticHeadline } from "@/components/KineticHeadline"
 import { MagneticButton } from "@/components/MagneticButton"
+import { InkFlowText } from "@/components/InkFlowText"
 
 export default function Home() {
   const heroImg = PlaceHolderImages.find(img => img.id === 'community-gathering')
@@ -30,7 +31,7 @@ export default function Home() {
           <div className="flex flex-col items-center text-white">
             <KineticHeadline 
               lines={["WELCOME TO"]} 
-              className="text-lg md:text-2xl font-bold uppercase tracking-[0.4em] mb-4 font-headline text-center"
+              className="text-lg md:text-2xl font-bold uppercase tracking-[0.4em] mb-12 font-headline text-center"
               staggerDelay={0}
             />
             
@@ -67,11 +68,11 @@ export default function Home() {
               lines={["A Place of", "Grace and Truth."]}
               className="text-[#2D2B44] text-4xl md:text-5xl font-black mb-8 uppercase leading-tight font-headline"
             />
-            <p className="text-muted-foreground text-lg mb-10 leading-relaxed font-body fade-in">
+            <InkFlowText className="text-muted-foreground text-lg mb-10 leading-relaxed font-body">
               We are a vibrant community located in the heart of the city. 
               Our mission is to share the light of hope and provide a home where 
               everyone can grow in their journey of faith.
-            </p>
+            </InkFlowText>
             <div className="h-1 w-20 bg-[#D12E8B] mx-auto" />
           </div>
         </div>
@@ -96,10 +97,10 @@ export default function Home() {
                 lines={["BUILDING A", "BETTER TOMORROW"]}
                 className="text-4xl md:text-6xl font-black uppercase font-headline leading-none"
               />
-              <p className="text-white/70 text-lg font-body leading-relaxed max-w-xl fade-in">
+              <InkFlowText className="text-white/70 text-lg font-body leading-relaxed max-w-xl">
                 Through faith and action, we are committed to making a difference in our local community. 
                 Discover how we are serving, growing, and reaching out to touch lives.
-              </p>
+              </InkFlowText>
               <MagneticButton>
                 <Button className="bg-[#D12E8B] hover:bg-[#B02675] text-white font-bold h-14 px-8 rounded-full text-lg group">
                   Join the Mission
@@ -118,21 +119,21 @@ export default function Home() {
             <Link href="/events" className="group">
               <div className="bg-white p-10 h-full shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-[#D12E8B]">
                 <KineticHeadline lines={["Calendar"]} className="text-2xl font-black text-[#2D2B44] mb-4 uppercase font-headline" />
-                <p className="text-muted-foreground mb-6 text-base font-body">Stay updated with our weekly services and special events.</p>
+                <InkFlowText className="text-muted-foreground mb-6 text-base font-body">Stay updated with our weekly services and special events.</InkFlowText>
                 <span className="text-[#D12E8B] font-bold text-sm tracking-widest uppercase">Learn More →</span>
               </div>
             </Link>
             <Link href="/sermons" className="group">
               <div className="bg-white p-10 h-full shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-[#D12E8B]">
                 <KineticHeadline lines={["Ministries"]} className="text-2xl font-black text-[#2D2B44] mb-4 uppercase font-headline" />
-                <p className="text-muted-foreground mb-6 text-base font-body">Find a group that fits your season of life.</p>
+                <InkFlowText className="text-muted-foreground mb-6 text-base font-body">Find a group that fits your season of life.</InkFlowText>
                 <span className="text-[#D12E8B] font-bold text-sm tracking-widest uppercase">Explore →</span>
               </div>
             </Link>
             <Link href="/donate" className="group">
               <div className="bg-white p-10 h-full shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-[#D12E8B]">
                 <KineticHeadline lines={["Giving"]} className="text-2xl font-black text-[#2D2B44] mb-4 uppercase font-headline" />
-                <p className="text-muted-foreground mb-6 text-base font-body">Partner with us in our mission through secure online giving.</p>
+                <InkFlowText className="text-muted-foreground mb-6 text-base font-body">Partner with us in our mission through secure online giving.</InkFlowText>
                 <span className="text-[#D12E8B] font-bold text-sm tracking-widest uppercase">Give Now →</span>
               </div>
             </Link>

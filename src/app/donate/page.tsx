@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
 import { KineticHeadline } from "@/components/KineticHeadline"
 import { MagneticButton } from "@/components/MagneticButton"
+import { InkFlowText } from "@/components/InkFlowText"
 
 export default function DonatePage() {
   const [amount, setAmount] = React.useState<string>("50")
@@ -30,9 +31,9 @@ export default function DonatePage() {
           lines={["Support Our Mission"]} 
           className="text-5xl font-bold text-primary mb-4"
         />
-        <p className="text-muted-foreground text-lg font-body max-w-2xl mx-auto fade-in">
+        <InkFlowText className="text-muted-foreground text-lg font-body max-w-2xl mx-auto">
           Your generosity enables us to serve our community, maintain our ministries, and share the message of hope with the world.
-        </p>
+        </InkFlowText>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -109,14 +110,14 @@ export default function DonatePage() {
               lines={["Why Your Giving", "Matters"]} 
               className="text-3xl font-bold text-primary mb-6"
             />
-            <div className="space-y-6 fade-in">
+            <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="bg-secondary/20 p-3 rounded-xl mt-1">
                   <Users className="h-6 w-6 text-secondary-foreground" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary text-lg">Local Outreach</h4>
-                  <p className="text-muted-foreground leading-relaxed">Helping our local neighbors with food, shelter, and essential support programs through our food bank and community center.</p>
+                  <InkFlowText className="text-muted-foreground leading-relaxed">Helping our local neighbors with food, shelter, and essential support programs through our food bank and community center.</InkFlowText>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -125,7 +126,7 @@ export default function DonatePage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary text-lg">Digital Ministry</h4>
-                  <p className="text-muted-foreground leading-relaxed">Funding our live streaming services to reach those who cannot join us in person, expanding our reach beyond the physical campus.</p>
+                  <InkFlowText className="text-muted-foreground leading-relaxed">Funding our live streaming services to reach those who cannot join us in person, expanding our reach beyond the physical campus.</InkFlowText>
                 </div>
               </div>
             </div>
@@ -138,9 +139,9 @@ export default function DonatePage() {
                 <ShieldCheck className="h-8 w-8 text-secondary" />
                 <KineticHeadline lines={["100% Transparent"]} className="text-2xl font-bold" />
               </div>
-              <p className="text-primary-foreground/80 font-body mb-6 leading-relaxed">
+              <InkFlowText className="text-primary-foreground/80 font-body mb-6 leading-relaxed">
                 NCF Church is a registered 501(c)(3) non-profit organization. All donations are tax-deductible. We provide annual contribution statements for your records every January.
-              </p>
+              </InkFlowText>
               <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 font-bold">
                 View Annual Impact Report
               </Button>

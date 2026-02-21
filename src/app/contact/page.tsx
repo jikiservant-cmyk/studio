@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent } from "@/components/ui/card"
 import { KineticHeadline } from "@/components/KineticHeadline"
 import { MagneticButton } from "@/components/MagneticButton"
+import { InkFlowText } from "@/components/InkFlowText"
 
 export default function ContactPage() {
   const { toast } = useToast()
@@ -35,15 +36,15 @@ export default function ContactPage() {
           lines={["Connect With Us"]} 
           className="text-5xl font-bold text-primary mb-4"
         />
-        <p className="text-muted-foreground text-lg font-body max-w-2xl mx-auto fade-in">
+        <InkFlowText className="text-muted-foreground text-lg font-body max-w-2xl mx-auto">
           Have a question or a prayer request? We're here to listen and support you in any way we can.
-        </p>
+        </InkFlowText>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Contact Info */}
-        <div className="space-y-8 fade-in">
-          <Card className="border-none shadow-md overflow-hidden bg-primary text-primary-foreground">
+        <div className="space-y-8">
+          <Card className="border-none shadow-md overflow-hidden bg-primary text-primary-foreground fade-in">
             <CardContent className="p-10 space-y-8">
               <KineticHeadline lines={["Reach Out"]} className="text-3xl font-bold mb-6" />
               <div className="flex items-start space-x-4">
@@ -80,9 +81,9 @@ export default function ContactPage() {
             <CardContent className="p-8 text-center">
               <Heart className="h-10 w-10 text-destructive mx-auto mb-4" />
               <KineticHeadline lines={["Prayer Support"]} className="text-xl font-bold text-primary mb-2" />
-              <p className="text-muted-foreground font-body leading-relaxed">
+              <InkFlowText className="text-muted-foreground font-body leading-relaxed">
                 Our prayer team meets every Wednesday to lift up our community. Every request is handled with strict confidentiality and care.
-              </p>
+              </InkFlowText>
             </CardContent>
           </Card>
         </div>
