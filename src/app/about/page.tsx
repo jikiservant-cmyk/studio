@@ -8,6 +8,7 @@ import { InkFlowText } from "@/components/InkFlowText"
 import { MagneticButton } from "@/components/MagneticButton"
 import { BlurFocusText } from "@/components/BlurFocusText"
 import { Separator } from "@/components/ui/separator"
+import { ImageReveal } from "@/components/ImageReveal"
 
 const team = [
   {
@@ -96,12 +97,14 @@ export default function AboutPage() {
                 Our history is a series of "yes" moments. Yes to serving our neighbors, yes to embracing new technology, and yes to keeping the door open for everyone, regardless of where they are on their path.
               </InkFlowText>
             </div>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl grayscale transition-all hover:grayscale-0 duration-1000">
-              <Image 
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <ImageReveal 
                 src="https://picsum.photos/seed/about-history/800/600" 
                 alt="Church History" 
-                fill 
-                className="object-cover"
+                width={800}
+                height={600}
+                className="w-full h-full grayscale hover:grayscale-0 transition-all duration-1000"
+                maskColor="bg-white"
               />
             </div>
           </div>
@@ -124,8 +127,15 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {team.map((member, i) => (
               <div key={i} className="flex flex-col space-y-6 fade-in" style={{ animationDelay: `${i * 0.2}s` }}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl grayscale brightness-95 hover:grayscale-0 transition-all duration-700 shadow-lg">
-                  <Image src={member.image} alt={member.name} fill className="object-cover" />
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-lg">
+                  <ImageReveal 
+                    src={member.image} 
+                    alt={member.name} 
+                    width={400}
+                    height={500}
+                    className="w-full h-full grayscale brightness-95 hover:grayscale-0 transition-all duration-700"
+                    maskColor="bg-[#F8F8F8]"
+                  />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-2xl font-black font-headline text-[#2D2B44] uppercase">{member.name}</h3>
