@@ -21,15 +21,15 @@ export default function Home() {
         />
         <div className="absolute inset-0 hero-overlay bg-black/50" />
         
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center text-white slide-up">
+        <div className="container mx-auto px-6 relative z-10 flex justify-center">
+          <div className="flex flex-col items-center text-white slide-up">
             {/* Top Line with generous padding */}
             <span className="text-lg md:text-2xl font-bold uppercase tracking-[0.4em] mb-12 font-headline text-center">
               WELCOME TO
             </span>
             
-            {/* Main Title Block - Extra tight leading for solid effect */}
-            <h1 className="flex flex-col items-center leading-[0.75] font-headline text-center">
+            {/* Main Title Block - Internally left-aligned to keep margins flush, but centered as a group */}
+            <h1 className="flex flex-col items-start leading-[0.75] font-headline">
               <span className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter">
                 NCF
               </span>
