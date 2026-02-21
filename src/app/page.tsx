@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { MessageSquare, ArrowRight } from "lucide-react"
+import { MessageSquare, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 
@@ -10,37 +10,39 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full relative">
       {/* Hero Section */}
-      <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2D2B44]">
         <Image
           src={heroImg?.imageUrl || "https://picsum.photos/seed/church-hero/1920/1080"}
           alt="NCF Church"
           fill
-          className="object-cover"
+          className="object-cover opacity-40"
           priority
           data-ai-hint="church congregation"
         />
-        <div className="absolute inset-0 hero-overlay" />
+        <div className="absolute inset-0 hero-overlay bg-black/40" />
         
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <div className="max-w-4xl mx-auto slide-up">
-            <h2 className="text-white text-xl md:text-2xl font-bold tracking-[0.4em] mb-2 uppercase font-headline">
-              Welcome To
-            </h2>
-            <h1 className="text-white text-5xl md:text-8xl font-[900] leading-none mb-8 uppercase tracking-tighter font-headline">
-              NCF Church
+          <div className="flex flex-col items-center justify-center text-white slide-up">
+            {/* Top Line */}
+            <span className="text-lg md:text-2xl font-bold uppercase tracking-[0.3em] mb-4 font-headline">
+              WELCOME TO
+            </span>
+            
+            {/* Middle and Bottom Lines (Stacked) */}
+            <h1 className="flex flex-col items-center leading-[0.8] mb-8 font-headline">
+              <span className="text-7xl md:text-[10rem] font-[900] uppercase tracking-tighter">
+                NCF
+              </span>
+              <span className="text-7xl md:text-[10rem] font-[900] uppercase tracking-tighter">
+                CHURCH
+              </span>
             </h1>
             
             {/* Minimalist Divider */}
-            <div className="w-24 h-2 bg-white mx-auto mb-12" />
+            <div className="w-20 h-2 bg-white mb-10" />
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
-              <Button asChild size="lg" className="bg-white text-[#2D2B44] hover:bg-white/90 font-bold h-14 px-10 text-base uppercase tracking-widest rounded-none transition-all">
-                <Link href="/contact">Visit Us</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-[#2D2B44] font-bold h-14 px-10 text-base uppercase tracking-widest rounded-none transition-all">
-                <Link href="/events">Events</Link>
-              </Button>
-            </div>
+            {/* Downward Arrow Icon */}
+            <ChevronDown className="h-12 w-12 animate-bounce opacity-80" strokeWidth={1.5} />
           </div>
         </div>
       </section>
