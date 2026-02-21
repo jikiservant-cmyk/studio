@@ -104,7 +104,6 @@ export default function AboutPage() {
                 width={800}
                 height={600}
                 className="w-full h-full grayscale hover:grayscale-0 transition-all duration-1000"
-                maskColor="bg-white"
               />
             </div>
           </div>
@@ -134,7 +133,6 @@ export default function AboutPage() {
                     width={400}
                     height={500}
                     className="w-full h-full grayscale brightness-95 hover:grayscale-0 transition-all duration-700"
-                    maskColor="bg-[#F8F8F8]"
                   />
                 </div>
                 <div className="space-y-2">
