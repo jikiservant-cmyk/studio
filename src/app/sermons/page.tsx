@@ -77,8 +77,17 @@ export default function MinistriesPage() {
         <section key={i} className="relative w-full">
           <div className={cn(
             "flex flex-col lg:flex-row min-h-[600px]",
-            i % 2 !== 0 && "lg:flex-row-reverse"
+            i % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"
           )}>
+            {/* Image Block - Always first in DOM for mobile top stacking */}
+            <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full">
+              <ImageReveal 
+                src={min.image} 
+                alt={min.title} 
+                className="w-full h-full grayscale brightness-75 hover:grayscale-0 transition-all duration-1000"
+              />
+            </div>
+
             {/* Text Block */}
             <div className={cn(
               "w-full lg:w-1/2 flex items-center justify-center p-12 md:p-24",
@@ -101,15 +110,6 @@ export default function MinistriesPage() {
                   </MagneticButton>
                 </div>
               </div>
-            </div>
-
-            {/* Image Block */}
-            <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full">
-              <ImageReveal 
-                src={min.image} 
-                alt={min.title} 
-                className="w-full h-full grayscale brightness-75 hover:grayscale-0 transition-all duration-1000"
-              />
             </div>
           </div>
         </section>

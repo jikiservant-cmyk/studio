@@ -48,13 +48,22 @@ export function ImageReveal({
       className={cn('relative overflow-hidden group', className)}
     >
       {/* The stationary image */}
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
-      />
+      {width && height ? (
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+        />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      )}
 
       {/* The sliding mask */}
       <div
