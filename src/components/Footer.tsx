@@ -48,7 +48,7 @@ export function Footer() {
             <ul className="space-y-6">
               <li className="flex items-start space-x-4">
                 <MapPin className="h-6 w-6 text-[#D12E8B] mt-1 shrink-0" />
-                <span className="text-white/60 text-lg">123 Faith Lane, Grace City, GC 45678</span>
+                <span className="text-white/60 text-lg">Nabweru Christian Fellowship Church, 9GGV+56F, Nabweru Rd, Kampala</span>
               </li>
               <li className="flex items-center space-x-4">
                 <Phone className="h-6 w-6 text-[#D12E8B] shrink-0" />
