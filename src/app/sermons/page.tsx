@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
+import { KineticHeadline } from "@/components/KineticHeadline"
 
 const pastSermons = [
   {
@@ -56,24 +57,26 @@ export default function SermonsPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       {/* Header */}
-      <div className="mb-12 text-center fade-in">
-        <h1 className="font-headline text-5xl font-bold text-primary mb-4">Sermons</h1>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
+      <div className="mb-12 text-center">
+        <KineticHeadline 
+          lines={["Sermons"]} 
+          className="text-5xl font-bold text-primary mb-4"
+        />
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body fade-in">
           Watch our services live or browse through our library of past messages to find inspiration and guidance.
         </p>
       </div>
 
       {/* Live Section */}
-      <section className="mb-20 fade-in">
+      <section className="mb-20">
         <div className="bg-card border rounded-2xl overflow-hidden shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-3">
-            <div className="lg:col-span-2 relative aspect-video bg-black">
+            <div className="lg:col-span-2 relative aspect-video bg-black fade-in">
               <Image
                 src={liveImg?.imageUrl || "https://picsum.photos/seed/live/1280/720"}
                 alt="Live Sermon"
                 fill
                 className="object-cover opacity-80"
-                data-ai-hint="church sermon"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <Button size="icon" className="w-20 h-20 rounded-full bg-secondary text-secondary-foreground hover:scale-110 transition-transform">
@@ -87,11 +90,14 @@ export default function SermonsPage() {
               </div>
             </div>
             <div className="p-8 flex flex-col justify-center bg-primary text-primary-foreground">
-              <h2 className="font-headline text-3xl font-bold mb-4">Current Series: Foundations of Faith</h2>
-              <p className="text-primary-foreground/80 mb-6 font-body leading-relaxed">
+              <KineticHeadline 
+                lines={["Current Series:", "Foundations of Faith"]} 
+                className="text-3xl font-bold mb-4"
+              />
+              <p className="text-primary-foreground/80 mb-6 font-body leading-relaxed fade-in">
                 Join us as we explore the essential pillars that sustain our spiritual walk in a modern world.
               </p>
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 fade-in">
                 <div className="flex items-center space-x-3">
                   <User className="h-5 w-5 text-secondary" />
                   <span>Pastor John Doe</span>
@@ -101,7 +107,7 @@ export default function SermonsPage() {
                   <span>Started at 11:00 AM</span>
                 </div>
               </div>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 fade-in">
                 <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 flex-1 font-bold">
                   Watch Live
                 </Button>
@@ -133,9 +139,9 @@ export default function SermonsPage() {
       </div>
 
       {/* Archive Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 fade-in">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {pastSermons.map((sermon, i) => (
-          <div key={i} className="group bg-card border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+          <div key={i} className="group bg-card border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
             <div className="relative aspect-video overflow-hidden">
               <Image
                 src={sermon.image}
@@ -164,7 +170,6 @@ export default function SermonsPage() {
         ))}
       </section>
 
-      {/* Pagination Placeholder */}
       <div className="flex justify-center mt-8 fade-in">
         <Button variant="outline" className="px-8 font-bold text-primary">Load More Sermons</Button>
       </div>

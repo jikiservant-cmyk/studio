@@ -3,6 +3,7 @@ import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { KineticHeadline } from "@/components/KineticHeadline"
 
 const upcomingEvents = [
   {
@@ -59,19 +60,25 @@ export default function EventsPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       {/* Header */}
-      <div className="mb-12 text-center fade-in">
-        <h1 className="font-headline text-5xl font-bold text-primary mb-4">Upcoming Events</h1>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
+      <div className="mb-12 text-center">
+        <KineticHeadline 
+          lines={["Upcoming Events"]} 
+          className="text-5xl font-bold text-primary mb-4"
+        />
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body fade-in">
           Connect with our community through services, small groups, and special events.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Events List */}
-        <div className="lg:col-span-2 space-y-8 fade-in">
-          <h2 className="font-headline text-3xl font-bold text-primary mb-6">Featured Events</h2>
+        <div className="lg:col-span-2 space-y-8">
+          <KineticHeadline 
+            lines={["Featured Events"]} 
+            className="text-3xl font-bold text-primary mb-6"
+          />
           {upcomingEvents.map((event, i) => (
-            <Card key={i} className="overflow-hidden border-none shadow-md hover:shadow-xl transition-shadow duration-300">
+            <Card key={i} className="overflow-hidden border-none shadow-md hover:shadow-xl transition-shadow duration-300 fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/3 relative h-48 md:h-auto overflow-hidden">
                   <Image
@@ -119,15 +126,14 @@ export default function EventsPage() {
         </div>
 
         {/* Sidebar */}
-        <div className="space-y-12 fade-in">
+        <div className="space-y-12">
           {/* Calendar Widget Placeholder */}
-          <div className="bg-card p-6 rounded-2xl border shadow-sm">
-            <h3 className="font-headline text-xl font-bold text-primary mb-4 flex items-center">
-              <Calendar className="h-5 w-5 mr-2 text-secondary-foreground" />
-              Event Calendar
-            </h3>
+          <div className="bg-card p-6 rounded-2xl border shadow-sm fade-in">
+            <KineticHeadline 
+              lines={["Event Calendar"]} 
+              className="text-xl font-bold text-primary mb-4 flex items-center"
+            />
             <div className="aspect-square bg-muted rounded-xl flex items-center justify-center text-muted-foreground border-2 border-dashed border-border p-4">
-               {/* Calendar component would go here */}
                <div className="text-center">
                  <p className="font-bold mb-2">October 2023</p>
                  <div className="grid grid-cols-7 gap-2 text-xs">
@@ -145,27 +151,16 @@ export default function EventsPage() {
           </div>
 
           {/* Connect Group CTA */}
-          <div className="bg-primary text-primary-foreground p-8 rounded-2xl shadow-xl relative overflow-hidden group">
+          <div className="bg-primary text-primary-foreground p-8 rounded-2xl shadow-xl relative overflow-hidden group fade-in">
             <div className="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform duration-500">
               <Users className="h-40 w-40" />
             </div>
-            <h3 className="font-headline text-2xl font-bold mb-4 relative z-10">Connect Groups</h3>
+            <KineticHeadline lines={["Connect Groups"]} className="text-2xl font-bold mb-4 relative z-10" />
             <p className="text-primary-foreground/80 mb-6 font-body relative z-10 leading-relaxed">
               Find your place in a smaller community. We have groups meeting throughout the week across the city.
             </p>
             <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 w-full font-bold relative z-10">
               Join a Group
-            </Button>
-          </div>
-
-          {/* Volunteer CTA */}
-          <div className="bg-secondary p-8 rounded-2xl shadow-lg border border-secondary text-secondary-foreground">
-            <h3 className="font-headline text-2xl font-bold mb-4">Volunteer</h3>
-            <p className="mb-6 font-body leading-relaxed opacity-90">
-              Help us make an impact! We're always looking for friendly faces to serve in various ministries.
-            </p>
-            <Button variant="outline" className="w-full font-bold border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
-              Sign Up to Serve
             </Button>
           </div>
         </div>
