@@ -1,179 +1,134 @@
-import Image from "next/image"
-import { Play, Calendar, User, Clock, Share2, Search, Filter } from "lucide-react"
+'use client';
+
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 import { KineticHeadline } from "@/components/KineticHeadline"
 import { InkFlowText } from "@/components/InkFlowText"
+import { MagneticButton } from "@/components/MagneticButton"
+import { ImageReveal } from "@/components/ImageReveal"
+import { cn } from "@/lib/utils"
 
-const pastSermons = [
+const ministries = [
   {
-    title: "Walking by Faith, Not by Sight",
-    date: "Oct 27, 2023",
-    speaker: "Pastor John Doe",
-    duration: "42:15",
-    image: "https://picsum.photos/seed/s1/400/250"
+    title: "YOUTH MINISTRY",
+    description: "Empowering the next generation to lead with faith and purpose. Our youth programs provide a safe space for exploration, growth, and authentic community building.",
+    image: "https://picsum.photos/seed/youth-min/800/800",
+    bgColor: "bg-[#3E3E4E]",
+    textColor: "text-white",
+    btnVariant: "default",
+    btnClass: "bg-[#FFB800] text-[#3E3E4E] hover:bg-[#FFB800]/90"
   },
   {
-    title: "The Strength in Our Community",
-    date: "Oct 20, 2023",
-    speaker: "Associate Pastor Sarah Smith",
-    duration: "38:40",
-    image: "https://picsum.photos/seed/s2/400/250"
+    title: "COMMUNITY OUTREACH",
+    description: "Extending a helping hand to our neighbors. Through local partnerships and grassroots initiatives, we aim to address systemic needs and share radical hospitality.",
+    image: "https://picsum.photos/seed/outreach-min/800/800",
+    bgColor: "bg-[#003322]",
+    textColor: "text-white",
+    btnVariant: "outline",
+    btnClass: "border-[#FFB800] text-[#FFB800] hover:bg-[#FFB800] hover:text-[#003322]"
   },
   {
-    title: "Finding Peace in the Storm",
-    date: "Oct 13, 2023",
-    speaker: "Pastor John Doe",
-    duration: "45:20",
-    image: "https://picsum.photos/seed/s3/400/250"
+    title: "WORSHIP & ARTS",
+    description: "Expressing our faith through creative excellence. Our worship experience blends tradition with modern artistry to create an atmosphere of reverence and inspiration.",
+    image: "https://picsum.photos/seed/worship-min/800/800",
+    bgColor: "bg-[#3E3E4E]",
+    textColor: "text-white",
+    btnVariant: "default",
+    btnClass: "bg-[#FFB800] text-[#3E3E4E] hover:bg-[#FFB800]/90"
   },
   {
-    title: "Grace Upon Grace",
-    date: "Oct 6, 2023",
-    speaker: "Elder Mike Williams",
-    duration: "35:10",
-    image: "https://picsum.photos/seed/s4/400/250"
-  },
-  {
-    title: "The Heart of Worship",
-    date: "Sep 29, 2023",
-    speaker: "Worship Leader Amy Chen",
-    duration: "40:00",
-    image: "https://picsum.photos/seed/s5/400/250"
-  },
-  {
-    title: "Legacy of Love",
-    date: "Sep 22, 2023",
-    speaker: "Pastor John Doe",
-    duration: "48:30",
-    image: "https://picsum.photos/seed/s6/400/250"
+    title: "GLOBAL MISSIONS",
+    description: "Taking the message of hope beyond borders. We support international projects focused on education, sustainable development, and spiritual guidance across the globe.",
+    image: "https://picsum.photos/seed/missions-min/800/800",
+    bgColor: "bg-[#003322]",
+    textColor: "text-white",
+    btnVariant: "outline",
+    btnClass: "border-[#FFB800] text-[#FFB800] hover:bg-[#FFB800] hover:text-[#003322]"
   }
 ]
 
-export default function SermonsPage() {
-  const liveImg = PlaceHolderImages.find(img => img.id === 'live-stream')
-
+export default function MinistriesPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      {/* Header */}
-      <div className="mb-12 text-center">
-        <KineticHeadline 
-          lines={["Sermons"]} 
-          className="text-5xl font-bold text-primary mb-4"
-        />
-        <InkFlowText className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-          Watch our services live or browse through our library of past messages to find inspiration and guidance.
-        </InkFlowText>
-      </div>
-
-      {/* Live Section */}
-      <section className="mb-20">
-        <div className="bg-card border rounded-2xl overflow-hidden shadow-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3">
-            <div className="lg:col-span-2 relative aspect-video bg-black fade-in">
-              <Image
-                src={liveImg?.imageUrl || "https://picsum.photos/seed/live/1280/720"}
-                alt="Live Sermon"
-                fill
-                className="object-cover opacity-80"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Button size="icon" className="w-20 h-20 rounded-full bg-secondary text-secondary-foreground hover:scale-110 transition-transform">
-                  <Play className="h-10 w-10 fill-current ml-1" />
-                </Button>
-              </div>
-              <div className="absolute top-4 left-4">
-                <Badge className="bg-red-600 text-white animate-pulse border-none px-3 py-1 text-sm font-bold">
-                  LIVE NOW
-                </Badge>
-              </div>
-            </div>
-            <div className="p-8 flex flex-col justify-center bg-primary text-primary-foreground">
-              <KineticHeadline 
-                lines={["Current Series:", "Foundations of Faith"]} 
-                className="text-3xl font-bold mb-4"
-              />
-              <InkFlowText className="text-primary-foreground/80 mb-6 font-body leading-relaxed">
-                Join us as we explore the essential pillars that sustain our spiritual walk in a modern world.
-              </InkFlowText>
-              <div className="space-y-4 mb-8 fade-in">
-                <div className="flex items-center space-x-3">
-                  <User className="h-5 w-5 text-secondary" />
-                  <span>Pastor John Doe</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="h-5 w-5 text-secondary" />
-                  <span>Started at 11:00 AM</span>
-                </div>
-              </div>
-              <div className="flex space-x-4 fade-in">
-                <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 flex-1 font-bold">
-                  Watch Live
-                </Button>
-                <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                  <Share2 className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
+    <div className="flex flex-col w-full">
+      {/* 1. Hero Section (Parallax) */}
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#1A1A1A]">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath: 'inset(0)' }}>
+          <div 
+            className="fixed inset-0 w-full h-full bg-center bg-cover -z-10 grayscale brightness-[0.4]"
+            style={{
+              backgroundImage: `url(https://picsum.photos/seed/gathering-hero/1920/1080)`,
+            }}
+          />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10 flex justify-center text-center">
+          <div className="flex flex-col items-center">
+            <KineticHeadline 
+              lines={["OUR", "MINISTRIES"]} 
+              className="text-7xl md:text-[10rem] font-black uppercase tracking-tighter leading-[0.85] font-headline text-[#FFB800]"
+              staggerDelay={0.2}
+            />
           </div>
         </div>
       </section>
 
-      {/* Filter & Search */}
-      <div className="flex flex-col md:flex-row gap-4 mb-12 fade-in">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search sermons by title, speaker or topic..." className="pl-10 h-12" />
-        </div>
-        <div className="flex gap-2">
-          <Button variant="outline" className="h-12">
-            <Filter className="h-4 w-4 mr-2" />
-            Category
-          </Button>
-          <Button variant="outline" className="h-12">
-            <Calendar className="h-4 w-4 mr-2" />
-            Year
-          </Button>
-        </div>
-      </div>
-
-      {/* Archive Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {pastSermons.map((sermon, i) => (
-          <div key={i} className="group bg-card border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
-            <div className="relative aspect-video overflow-hidden">
-              <Image
-                src={sermon.image}
-                alt={sermon.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Play className="h-12 w-12 text-white" />
-              </div>
-              <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                {sermon.duration}
+      {/* 2. Z-Pattern Content Rows */}
+      {ministries.map((min, i) => (
+        <section key={i} className="relative w-full">
+          <div className={cn(
+            "flex flex-col lg:flex-row min-h-[600px]",
+            i % 2 !== 0 && "lg:flex-row-reverse"
+          )}>
+            {/* Text Block */}
+            <div className={cn(
+              "w-full lg:w-1/2 flex items-center justify-center p-12 md:p-24",
+              min.bgColor,
+              min.textColor
+            )}>
+              <div className="max-w-md space-y-8">
+                <KineticHeadline 
+                  lines={[min.title]} 
+                  className="text-3xl md:text-5xl font-bold font-serif text-[#FFB800]"
+                />
+                <InkFlowText delay={0.8} className="text-lg md:text-xl font-body leading-relaxed opacity-90">
+                  {min.description}
+                </InkFlowText>
+                <div className="pt-4">
+                  <MagneticButton>
+                    <Button className={cn("h-14 px-10 rounded-full font-black text-lg group", min.btnClass)}>
+                      LEARN MORE <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </MagneticButton>
+                </div>
               </div>
             </div>
-            <div className="p-6">
-              <h3 className="font-headline text-xl font-bold text-primary mb-2 group-hover:text-secondary-foreground transition-colors line-clamp-1">{sermon.title}</h3>
-              <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-4 font-body">
-                <span className="flex items-center"><Calendar className="h-4 w-4 mr-1" /> {sermon.date}</span>
-                <span className="flex items-center"><User className="h-4 w-4 mr-1" /> {sermon.speaker}</span>
-              </div>
-              <Button variant="link" className="p-0 h-auto text-primary font-bold hover:text-secondary-foreground">
-                Watch Message
-              </Button>
+
+            {/* Image Block */}
+            <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full">
+              <ImageReveal 
+                src={min.image} 
+                alt={min.title} 
+                className="w-full h-full grayscale brightness-75 hover:grayscale-0 transition-all duration-1000"
+              />
             </div>
           </div>
-        ))}
-      </section>
+        </section>
+      ))}
 
-      <div className="flex justify-center mt-8 fade-in">
-        <Button variant="outline" className="px-8 font-bold text-primary">Load More Sermons</Button>
-      </div>
+      {/* 3. Footer CTA Section */}
+      <section className="py-32 bg-[#003322] text-white text-center">
+        <div className="container mx-auto px-6">
+          <KineticHeadline 
+            lines={["GET INVOLVED TODAY"]} 
+            className="text-4xl md:text-7xl font-black uppercase font-headline mb-12"
+          />
+          <MagneticButton>
+            <Button variant="outline" className="border-[#FFB800] text-[#FFB800] hover:bg-[#FFB800] hover:text-[#003322] font-black h-20 px-12 rounded-full text-2xl group transition-all duration-500">
+              JOIN A TEAM <ArrowRight className="ml-2 h-8 w-8 group-hover:translate-x-2 transition-transform" />
+            </Button>
+          </MagneticButton>
+        </div>
+      </section>
     </div>
   )
 }
