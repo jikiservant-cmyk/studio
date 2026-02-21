@@ -12,13 +12,13 @@ import { ImageReveal } from "@/components/ImageReveal"
 
 const team = [
   {
-    name: "Johnathan Doe",
+    name: "Mubiru Florence",
     role: "Lead Pastor",
     bio: "Visionary leader dedicated to community spiritual growth.",
     image: "https://picsum.photos/seed/p1/400/500"
   },
   {
-    name: "Sarah Jenkins",
+    name: "Kembabazi Rose",
     role: "Community Director",
     bio: "Passionate about outreach and local support programs.",
     image: "https://picsum.photos/seed/p2/400/500"

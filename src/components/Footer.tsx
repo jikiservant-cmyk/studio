@@ -36,6 +36,7 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-black mb-8 uppercase text-[#D12E8B] tracking-widest">Worship Times</h3>
             <ul className="space-y-4 text-white/60 font-body text-lg">
+              <li>Sunday Discipleship Class: 7:00 AM - 9:00 AM</li>
               <li>Sunday Morning: 9:00 AM</li>
               <li>Sunday Traditional: 11:00 AM</li>
               <li>Wednesday Prayer: 7:00 PM</li>
