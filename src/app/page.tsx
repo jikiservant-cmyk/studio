@@ -9,19 +9,23 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full relative">
-      {/* Hero Section with Parallax Effect */}
-      <section 
-        className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2D2B44]"
-        style={{
-          backgroundImage: `url(${heroImg?.imageUrl || "https://picsum.photos/seed/church-hero/1920/1080"})`,
-          backgroundAttachment: 'fixed',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover'
-        }}
-      >
-        {/* Overlay to mute the background image */}
-        <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section with Mobile-Compatible Parallax */}
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2D2B44]">
+        {/* 
+            This container uses clip-path to ensure the fixed background 
+            only stays visible within the bounds of the hero section.
+            This works reliably on mobile where background-attachment: fixed fails.
+        */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath: 'inset(0)' }}>
+          <div 
+            className="fixed inset-0 w-full h-full bg-center bg-cover -z-10"
+            style={{
+              backgroundImage: `url(${heroImg?.imageUrl || "https://picsum.photos/seed/church-hero/1920/1080"})`,
+            }}
+          />
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
         
         <div className="container mx-auto px-6 relative z-10 flex justify-center">
           <div className="flex flex-col items-center text-white slide-up">
@@ -61,7 +65,7 @@ export default function Home() {
       </div>
 
       {/* Introduction Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white relative z-10">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto text-center fade-in">
             <h2 className="text-[#2D2B44] text-4xl md:text-5xl font-black mb-8 uppercase leading-tight font-headline">
@@ -78,7 +82,7 @@ export default function Home() {
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-20 bg-[#F5F5F5] relative z-10">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/events" className="group">
