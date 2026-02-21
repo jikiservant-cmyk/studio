@@ -81,6 +81,22 @@
   animation: revealSlideRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Kinetic Typography Animations */
+@keyframes kineticReveal {
+  from {
+    transform: translateY(105%) skewY(6deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) skewY(0);
+    opacity: 1;
+  }
+}
+
+.kinetic-animate {
+  animation: kineticReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .hero-overlay {
   background: linear-gradient(to bottom, rgba(45, 43, 68, 0.7) 0%, rgba(45, 43, 68, 0.85) 100%);
 }

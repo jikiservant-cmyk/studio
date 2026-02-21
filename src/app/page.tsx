@@ -5,6 +5,7 @@ import { MessageSquare, ChevronDown, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 import { ImageReveal } from "@/components/ImageReveal"
+import { KineticHeadline } from "@/components/KineticHeadline"
 
 export default function Home() {
   const heroImg = PlaceHolderImages.find(img => img.id === 'community-gathering')
@@ -73,7 +74,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Image Reveal Section */}
+      {/* Image Reveal Section with Kinetic Headline */}
       <section className="py-12 md:py-24 bg-[#3E3E4E] overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -88,9 +89,10 @@ export default function Home() {
             </div>
             <div className="order-1 lg:order-2 space-y-8 text-white">
               <span className="text-[#D12E8B] font-bold uppercase tracking-widest">Our Vision</span>
-              <h2 className="text-4xl md:text-6xl font-black uppercase font-headline leading-none">
-                BUILDING A <br />BETTER TOMORROW
-              </h2>
+              <KineticHeadline 
+                lines={["BUILDING A", "BETTER TOMORROW"]}
+                className="text-4xl md:text-6xl font-black uppercase font-headline leading-none"
+              />
               <p className="text-white/70 text-lg font-body leading-relaxed max-w-xl">
                 Through faith and action, we are committed to making a difference in our local community. 
                 Discover how we are serving, growing, and reaching out to touch lives.
