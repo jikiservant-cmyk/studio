@@ -9,7 +9,7 @@ interface InkFlowTextProps {
   delay?: number;
 }
 
-export function InkFlowText({ children, className, delay = 0 }: InkFlowTextProps) {
+export function InkFlowText({ children, className, delay = 0.8 }: InkFlowTextProps) {
   const [isVisible, setIsVisible] = useState(false);
   const textRef = useRef<HTMLDivElement>(null);
 
