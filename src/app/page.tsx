@@ -1,21 +1,19 @@
+'use client';
+
 import Link from "next/link"
-import Image from "next/image"
-import { MessageSquare, ChevronDown } from "lucide-react"
+import { MessageSquare, ChevronDown, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
+import { ImageReveal } from "@/components/ImageReveal"
 
 export default function Home() {
   const heroImg = PlaceHolderImages.find(img => img.id === 'community-gathering')
+  const visionImg = PlaceHolderImages.find(img => img.id === 'hero-church')
 
   return (
     <div className="flex flex-col w-full relative">
       {/* Hero Section with Mobile-Compatible Parallax */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2D2B44]">
-        {/* 
-            This container uses clip-path to ensure the fixed background 
-            only stays visible within the bounds of the hero section.
-            This works reliably on mobile where background-attachment: fixed fails.
-        */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath: 'inset(0)' }}>
           <div 
             className="fixed inset-0 w-full h-full bg-center bg-cover -z-10"
@@ -23,18 +21,15 @@ export default function Home() {
               backgroundImage: `url(${heroImg?.imageUrl || "https://picsum.photos/seed/church-hero/1920/1080"})`,
             }}
           />
-          {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
         <div className="container mx-auto px-6 relative z-10 flex justify-center">
           <div className="flex flex-col items-center text-white slide-up">
-            {/* Top Line with generous padding */}
             <span className="text-lg md:text-2xl font-bold uppercase tracking-[0.4em] mb-12 font-headline text-center">
               WELCOME TO
             </span>
             
-            {/* Main Title Block - Flush margins, centered as a group */}
             <h1 className="flex flex-col items-start leading-[0.75] font-headline">
               <span className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter">
                 NCF
@@ -44,10 +39,7 @@ export default function Home() {
               </span>
             </h1>
             
-            {/* Short, thick horizontal white line with moderate margin */}
             <div className="w-24 h-3 bg-white mt-12 mb-8" />
-
-            {/* Downward Arrow Icon */}
             <ChevronDown className="h-10 w-10 animate-bounce opacity-60" strokeWidth={1.5} />
           </div>
         </div>
@@ -77,6 +69,37 @@ export default function Home() {
               everyone can grow in their journey of faith.
             </p>
             <div className="h-1 w-20 bg-[#D12E8B] mx-auto" />
+          </div>
+        </div>
+      </section>
+
+      {/* Image Reveal Section */}
+      <section className="py-12 md:py-24 bg-[#3E3E4E] overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <ImageReveal 
+                src={visionImg?.imageUrl || "https://picsum.photos/seed/vision/800/600"}
+                alt="Our Vision"
+                width={800}
+                height={600}
+                className="rounded-lg shadow-2xl aspect-[4/3]"
+              />
+            </div>
+            <div className="order-1 lg:order-2 space-y-8 text-white">
+              <span className="text-[#D12E8B] font-bold uppercase tracking-widest">Our Vision</span>
+              <h2 className="text-4xl md:text-6xl font-black uppercase font-headline leading-none">
+                BUILDING A <br />BETTER TOMORROW
+              </h2>
+              <p className="text-white/70 text-lg font-body leading-relaxed max-w-xl">
+                Through faith and action, we are committed to making a difference in our local community. 
+                Discover how we are serving, growing, and reaching out to touch lives.
+              </p>
+              <Button className="bg-[#D12E8B] hover:bg-[#B02675] text-white font-bold h-14 px-8 rounded-full text-lg group">
+                Join the Mission
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
