@@ -15,7 +15,6 @@ const ministries = [
     image: "https://picsum.photos/seed/youth-min/800/800",
     bgColor: "bg-[#3E3E4E]",
     textColor: "text-white",
-    btnVariant: "default",
     btnClass: "bg-[#FFB800] text-[#3E3E4E] hover:bg-[#FFB800]/90"
   },
   {
@@ -24,26 +23,47 @@ const ministries = [
     image: "https://picsum.photos/seed/outreach-min/800/800",
     bgColor: "bg-[#003322]",
     textColor: "text-white",
-    btnVariant: "outline",
     btnClass: "border-[#FFB800] text-[#FFB800] hover:bg-[#FFB800] hover:text-[#003322]"
+  },
+  {
+    title: "WOMEN'S MINISTRY",
+    description: "A community of women growing together in grace, wisdom, and love. Our gatherings focus on spiritual nourishment, deep connection, and supporting one another in every season of life.",
+    image: "https://picsum.photos/seed/women-min/800/800",
+    bgColor: "bg-[#3E3E4E]",
+    textColor: "text-white",
+    btnClass: "bg-[#FFB800] text-[#3E3E4E] hover:bg-[#FFB800]/90"
+  },
+  {
+    title: "MEN'S MINISTRY",
+    description: "Building strong men of faith through brotherhood, discipleship, and service. We challenge each other to live with integrity and lead our families and communities with purpose.",
+    image: "https://picsum.photos/seed/men-min/800/800",
+    bgColor: "bg-[#003322]",
+    textColor: "text-white",
+    btnClass: "border-[#FFB800] text-[#FFB800] hover:bg-[#FFB800] hover:text-[#003322]"
+  },
+  {
+    title: "KIDS MINISTRY",
+    description: "Nurturing the faith of our youngest members in a fun, safe, and engaging environment. We provide age-appropriate biblical teaching that helps children discover God's love.",
+    image: "https://picsum.photos/seed/kids-min/800/800",
+    bgColor: "bg-[#3E3E4E]",
+    textColor: "text-white",
+    btnClass: "bg-[#FFB800] text-[#3E3E4E] hover:bg-[#FFB800]/90"
   },
   {
     title: "WORSHIP & ARTS",
     description: "Expressing our faith through creative excellence. Our worship experience blends tradition with modern artistry to create an atmosphere of reverence and inspiration.",
     image: "https://picsum.photos/seed/worship-min/800/800",
-    bgColor: "bg-[#3E3E4E]",
+    bgColor: "bg-[#003322]",
     textColor: "text-white",
-    btnVariant: "default",
-    btnClass: "bg-[#FFB800] text-[#3E3E4E] hover:bg-[#FFB800]/90"
+    btnClass: "border-[#FFB800] text-[#FFB800] hover:bg-[#FFB800] hover:text-[#003322]"
   },
   {
     title: "GLOBAL MISSIONS",
     description: "Taking the message of hope beyond borders. We support international projects focused on education, sustainable development, and spiritual guidance across the globe.",
     image: "https://picsum.photos/seed/missions-min/800/800",
-    bgColor: "bg-[#003322]",
+    bgColor: "bg-[#3E3E4E]",
     textColor: "text-white",
-    btnVariant: "outline",
-    btnClass: "border-[#FFB800] text-[#FFB800] hover:bg-[#FFB800] hover:text-[#003322]"
+    btnClass: "bg-[#FFB800] text-[#3E3E4E] hover:bg-[#FFB800]/90"
   }
 ]
 
@@ -77,7 +97,7 @@ export default function MinistriesPage() {
         <section key={i} className="relative w-full">
           <div className={cn(
             "flex flex-col lg:flex-row min-h-[600px]",
-            i % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"
+            i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
           )}>
             {/* Image Block - Always first in DOM for mobile top stacking */}
             <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full">
@@ -85,6 +105,7 @@ export default function MinistriesPage() {
                 src={min.image} 
                 alt={min.title} 
                 className="w-full h-full grayscale brightness-75 hover:grayscale-0 transition-all duration-1000"
+                maskColor={min.bgColor === "bg-[#3E3E4E]" ? "bg-[#3E3E4E]" : "bg-[#003322]"}
               />
             </div>
 
