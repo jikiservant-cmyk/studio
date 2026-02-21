@@ -9,17 +9,19 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full relative">
-      {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2D2B44]">
-        <Image
-          src={heroImg?.imageUrl || "https://picsum.photos/seed/church-hero/1920/1080"}
-          alt="NCF Church"
-          fill
-          className="object-cover opacity-30"
-          priority
-          data-ai-hint="church congregation"
-        />
-        <div className="absolute inset-0 hero-overlay bg-black/50" />
+      {/* Hero Section with Parallax Effect */}
+      <section 
+        className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2D2B44]"
+        style={{
+          backgroundImage: `url(${heroImg?.imageUrl || "https://picsum.photos/seed/church-hero/1920/1080"})`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
+        }}
+      >
+        {/* Overlay to mute the background image */}
+        <div className="absolute inset-0 bg-black/50" />
         
         <div className="container mx-auto px-6 relative z-10 flex justify-center">
           <div className="flex flex-col items-center text-white slide-up">
@@ -28,7 +30,7 @@ export default function Home() {
               WELCOME TO
             </span>
             
-            {/* Main Title Block - Internally left-aligned to keep margins flush, but centered as a group */}
+            {/* Main Title Block - Flush margins, centered as a group */}
             <h1 className="flex flex-col items-start leading-[0.75] font-headline">
               <span className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter">
                 NCF
