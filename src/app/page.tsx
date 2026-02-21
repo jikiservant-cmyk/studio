@@ -30,17 +30,15 @@ export default function Home() {
           <div className="flex flex-col items-center text-white">
             <KineticHeadline 
               lines={["WELCOME TO"]} 
-              className="text-lg md:text-2xl font-bold uppercase tracking-[0.4em] mb-12 font-headline text-center"
+              className="text-lg md:text-2xl font-bold uppercase tracking-[0.4em] mb-4 font-headline text-center"
+              staggerDelay={0}
             />
             
-            <h1 className="flex flex-col items-start leading-[0.75] font-headline">
-              <span className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter">
-                NCF
-              </span>
-              <span className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter">
-                CHURCH
-              </span>
-            </h1>
+            <KineticHeadline 
+              lines={["NCF", "CHURCH"]} 
+              className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter leading-[0.75] font-headline text-left items-start"
+              staggerDelay={0.1}
+            />
             
             <div className="w-24 h-3 bg-white mt-12 mb-8" />
             <ChevronDown className="h-10 w-10 animate-bounce opacity-60" strokeWidth={1.5} />
