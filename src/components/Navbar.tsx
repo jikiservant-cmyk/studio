@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -10,6 +11,7 @@ const navLinks = [
   { name: "About Us", href: "/" },
   { name: "Events", href: "/events" },
   { name: "Our Ministries", href: "/sermons" },
+  { name: "Podcast", href: "#" },
   { name: "Donate", href: "/donate" },
   { name: "Visit Us", href: "/contact" },
 ]
@@ -19,74 +21,87 @@ export function Navbar() {
   const pathname = usePathname()
 
   return (
-    <header className="w-full z-50 sticky top-0">
-      {/* Pink Top Bar */}
-      <div className="h-2 w-full bg-[#D12E8B]" />
-      
-      <nav className="bg-[#2D2B44] text-white shadow-xl">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex h-24 items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex flex-col items-start group">
-              <span className="text-3xl font-black uppercase tracking-tighter leading-[0.8] group-hover:text-[#D12E8B] transition-colors">
-                NCF<br />CHURCH
-              </span>
+    <header className="w-full z-50 sticky top-0 bg-[#3E3E4E] shadow-lg">
+      <nav className="container mx-auto px-6 lg:px-12">
+        <div className="flex h-20 items-center justify-between">
+          {/* Logo & Links Group */}
+          <div className="flex items-center">
+            {/* Logo - Far Left */}
+            <Link href="/" className="flex items-center mr-12 group">
+              <svg 
+                width="36" 
+                height="36" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="white" 
+                strokeWidth="1.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="group-hover:opacity-80 transition-opacity"
+              >
+                {/* Halo */}
+                <path d="M12 3a4 4 0 0 1 4 4M12 3a4 4 0 0 0-4 4" />
+                {/* Hands held open */}
+                <path d="M4 18c1-1 3-2 5-2s3 1 4 2" />
+                <path d="M20 18c-1-1-3-2-5-2s-3 1-4 2" />
+                {/* Subtle vertical suggestion of center */}
+                <path d="M12 12v2" opacity="0.3" />
+              </svg>
             </Link>
 
-            {/* Desktop Links */}
+            {/* Desktop Links - Horizontally arranged to the right of the logo */}
             <div className="hidden md:flex items-center space-x-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-sm font-black uppercase tracking-widest transition-all hover:text-[#D12E8B] relative py-2",
-                    pathname === link.href ? "text-[#D12E8B]" : "text-white"
+                    "text-xs font-medium uppercase tracking-[0.2em] transition-all hover:text-white/70 font-headline text-white whitespace-nowrap",
+                    pathname === link.href ? "opacity-100" : "opacity-80"
                   )}
                 >
                   {link.name}
-                  {pathname === link.href && (
-                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[#D12E8B]" />
-                  )}
                 </Link>
               ))}
-              <button className="p-2 hover:text-[#D12E8B] transition-colors">
-                <Search className="h-5 w-5" />
-              </button>
             </div>
+          </div>
 
+          {/* Right Group: Search Icon */}
+          <div className="flex items-center">
+            <button className="p-2 text-white hover:text-white/70 transition-colors">
+              <Search className="h-5 w-5" />
+            </button>
+            
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-4">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label="Toggle menu"
-                className="p-2 text-[#D12E8B]"
-              >
-                {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
-              </button>
-            </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              className="md:hidden ml-4 p-2 text-white"
+            >
+              {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+            </button>
           </div>
         </div>
-
-        {/* Mobile Links */}
-        {isOpen && (
-          <div className="md:hidden bg-[#2D2B44] border-t border-white/10 px-6 py-8 space-y-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={cn(
-                  "block text-2xl font-black uppercase tracking-widest",
-                  pathname === link.href ? "text-[#D12E8B]" : "text-white"
-                )}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        )}
       </nav>
+
+      {/* Mobile Links */}
+      {isOpen && (
+        <div className="md:hidden bg-[#3E3E4E] border-t border-white/5 px-6 py-8 space-y-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={cn(
+                "block text-xl font-medium uppercase tracking-widest text-white font-headline",
+                pathname === link.href ? "opacity-100" : "opacity-60"
+              )}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   )
 }
