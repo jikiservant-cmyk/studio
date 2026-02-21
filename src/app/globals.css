@@ -41,11 +41,16 @@
 
 :root {
   --font-headline: 'Montserrat', sans-serif;
+  --font-serif: 'Playfair Display', serif;
   --font-body: 'Open Sans', sans-serif;
 }
 
 .font-headline {
   font-family: var(--font-headline);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
 }
 
 .font-body {
@@ -122,6 +127,24 @@
 
 .ink-flow-active {
   animation: inkFlow 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Blur to Focus Animation */
+@keyframes blurFocus {
+  from {
+    filter: blur(20px);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.blur-focus-active {
+  animation: blurFocus 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero-overlay {

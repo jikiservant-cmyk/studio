@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -8,7 +7,7 @@ import { Menu, X, Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { name: "About Us", href: "/" },
+  { name: "About Us", href: "/about" },
   { name: "Events", href: "/events" },
   { name: "Our Ministries", href: "/sermons" },
   { name: "Podcast", href: "#" },
@@ -39,17 +38,14 @@ export function Navbar() {
                 strokeLinejoin="round"
                 className="group-hover:opacity-80 transition-opacity"
               >
-                {/* Halo */}
                 <path d="M12 3a4 4 0 0 1 4 4M12 3a4 4 0 0 0-4 4" />
-                {/* Hands held open */}
                 <path d="M4 18c1-1 3-2 5-2s3 1 4 2" />
                 <path d="M20 18c-1-1-3-2-5-2s-3 1-4 2" />
-                {/* Subtle vertical suggestion of center */}
                 <path d="M12 12v2" opacity="0.3" />
               </svg>
             </Link>
 
-            {/* Desktop Links - Horizontally arranged to the right of the logo */}
+            {/* Desktop Links */}
             <div className="hidden md:flex items-center space-x-10">
               {navLinks.map((link) => (
                 <Link
