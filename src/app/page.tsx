@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 import { ImageReveal } from "@/components/ImageReveal"
 import { KineticHeadline } from "@/components/KineticHeadline"
+import { MagneticButton } from "@/components/MagneticButton"
 
 export default function Home() {
   const heroImg = PlaceHolderImages.find(img => img.id === 'community-gathering')
@@ -49,13 +50,15 @@ export default function Home() {
 
       {/* Floating Chat Button */}
       <div className="fixed bottom-8 right-8 z-50">
-        <button className="bg-[#2D2B44] text-white flex items-center space-x-3 px-6 py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all group border-2 border-white/10">
-          <div className="relative">
-            <MessageSquare className="h-6 w-6 text-[#D12E8B]" />
-            <div className="absolute -top-1 -right-1 bg-[#D12E8B] w-3 h-3 rounded-full border-2 border-[#2D2B44] animate-pulse" />
-          </div>
-          <span className="font-bold text-lg">Let's Chat!</span>
-        </button>
+        <MagneticButton strength={20}>
+          <button className="bg-[#2D2B44] text-white flex items-center space-x-3 px-6 py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all group border-2 border-white/10">
+            <div className="relative">
+              <MessageSquare className="h-6 w-6 text-[#D12E8B]" />
+              <div className="absolute -top-1 -right-1 bg-[#D12E8B] w-3 h-3 rounded-full border-2 border-[#2D2B44] animate-pulse" />
+            </div>
+            <span className="font-bold text-lg">Let's Chat!</span>
+          </button>
+        </MagneticButton>
       </div>
 
       {/* Introduction Section */}
@@ -99,10 +102,12 @@ export default function Home() {
                 Through faith and action, we are committed to making a difference in our local community. 
                 Discover how we are serving, growing, and reaching out to touch lives.
               </p>
-              <Button className="bg-[#D12E8B] hover:bg-[#B02675] text-white font-bold h-14 px-8 rounded-full text-lg group">
-                Join the Mission
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <MagneticButton>
+                <Button className="bg-[#D12E8B] hover:bg-[#B02675] text-white font-bold h-14 px-8 rounded-full text-lg group">
+                  Join the Mission
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </MagneticButton>
             </div>
           </div>
         </div>

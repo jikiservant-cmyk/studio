@@ -9,6 +9,7 @@ import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
 import { KineticHeadline } from "@/components/KineticHeadline"
+import { MagneticButton } from "@/components/MagneticButton"
 
 export default function DonatePage() {
   const [amount, setAmount] = React.useState<string>("50")
@@ -85,9 +86,11 @@ export default function DonatePage() {
                   <Switch checked={recurring} onCheckedChange={setRecurring} />
                 </div>
 
-                <Button className="w-full h-16 text-xl font-bold bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-lg" onClick={handleDonate}>
-                  Give {recurring ? 'Monthly' : 'Once'} - ${amount || '0'}
-                </Button>
+                <MagneticButton className="w-full">
+                  <Button className="w-full h-16 text-xl font-bold bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-lg" onClick={handleDonate}>
+                    Give {recurring ? 'Monthly' : 'Once'} - ${amount || '0'}
+                  </Button>
+                </MagneticButton>
               </div>
             </CardContent>
             <CardFooter className="bg-muted/30 border-t p-6 flex items-center justify-center space-x-4">

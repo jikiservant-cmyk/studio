@@ -10,6 +10,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent } from "@/components/ui/card"
 import { KineticHeadline } from "@/components/KineticHeadline"
+import { MagneticButton } from "@/components/MagneticButton"
 
 export default function ContactPage() {
   const { toast } = useToast()
@@ -130,14 +131,16 @@ export default function ContactPage() {
               <Textarea id="message" placeholder="Type your message or prayer request here..." className="min-h-[180px] text-lg p-4 resize-none" required />
             </div>
 
-            <Button type="submit" className="w-full h-14 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-md group" disabled={isSubmitting}>
-              {isSubmitting ? "Sending..." : (
-                <span className="flex items-center justify-center">
-                  Send Message
-                  <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              )}
-            </Button>
+            <MagneticButton className="w-full">
+              <Button type="submit" className="w-full h-14 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-md group" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : (
+                  <span className="flex items-center justify-center">
+                    Send Message
+                    <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                )}
+              </Button>
+            </MagneticButton>
           </form>
         </div>
       </div>
