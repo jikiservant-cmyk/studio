@@ -15,34 +15,34 @@ export default function Home() {
           src={heroImg?.imageUrl || "https://picsum.photos/seed/church-hero/1920/1080"}
           alt="NCF Church"
           fill
-          className="object-cover opacity-40"
+          className="object-cover opacity-30"
           priority
           data-ai-hint="church congregation"
         />
-        <div className="absolute inset-0 hero-overlay bg-black/40" />
+        <div className="absolute inset-0 hero-overlay bg-black/50" />
         
-        <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center justify-center text-white slide-up">
-            {/* Top Line */}
-            <span className="text-lg md:text-2xl font-bold uppercase tracking-[0.3em] mb-4 font-headline">
+            {/* Top Line with generous padding */}
+            <span className="text-lg md:text-2xl font-bold uppercase tracking-[0.4em] mb-12 font-headline text-center">
               WELCOME TO
             </span>
             
-            {/* Middle and Bottom Lines (Stacked) */}
-            <h1 className="flex flex-col items-center leading-[0.8] mb-8 font-headline">
-              <span className="text-7xl md:text-[10rem] font-[900] uppercase tracking-tighter">
+            {/* Main Title Block - Extra tight leading for solid effect */}
+            <h1 className="flex flex-col items-center leading-[0.75] font-headline text-center">
+              <span className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter">
                 NCF
               </span>
-              <span className="text-7xl md:text-[10rem] font-[900] uppercase tracking-tighter">
+              <span className="text-7xl md:text-[12rem] font-[900] uppercase tracking-tighter">
                 CHURCH
               </span>
             </h1>
             
-            {/* Minimalist Divider */}
-            <div className="w-20 h-2 bg-white mb-10" />
+            {/* Short, thick horizontal white line with moderate margin */}
+            <div className="w-24 h-3 bg-white mt-12 mb-8" />
 
             {/* Downward Arrow Icon */}
-            <ChevronDown className="h-12 w-12 animate-bounce opacity-80" strokeWidth={1.5} />
+            <ChevronDown className="h-10 w-10 animate-bounce opacity-60" strokeWidth={1.5} />
           </div>
         </div>
       </section>
