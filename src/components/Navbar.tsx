@@ -10,7 +10,7 @@ const navLinks = [
   { name: "About Us", href: "/about" },
   { name: "Events", href: "/events" },
   { name: "Our Ministries", href: "/sermons" },
-  { name: "Podcast", href: "#" },
+  { name: "Podcast", href: "/podcast" },
   { name: "Donate", href: "/donate" },
   { name: "Visit Us", href: "/contact" },
 ]
