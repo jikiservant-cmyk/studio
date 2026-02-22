@@ -34,6 +34,8 @@ const team = [
 ]
 
 export default function AboutPage() {
+  const historyImg = PlaceHolderImages.find(img => img.id === 'about-history')?.imageUrl || "/images/IMG_8919.jpg";
+
   return (
     <div className="flex flex-col w-full">
       {/* 1. Hero Section (Parallax) */}
@@ -101,7 +103,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <ImageReveal 
-                src="https://picsum.photos/seed/about-history/800/600" 
+                src={historyImg} 
                 alt="Church History" 
                 width={800}
                 height={600}

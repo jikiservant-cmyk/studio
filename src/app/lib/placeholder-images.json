@@ -48,6 +48,12 @@
       "description": "Sebalamu Geoffrey - Creative Arts",
       "imageUrl": "https://picsum.photos/seed/p3/400/500",
       "imageHint": "man creative"
+    },
+    {
+      "id": "about-history",
+      "description": "Church History - Journey so far",
+      "imageUrl": "/images/IMG_8919.jpg",
+      "imageHint": "church history"
     }
   ]
 }
