@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from "next/image"
@@ -9,25 +10,26 @@ import { MagneticButton } from "@/components/MagneticButton"
 import { BlurFocusText } from "@/components/BlurFocusText"
 import { Separator } from "@/components/ui/separator"
 import { ImageReveal } from "@/components/ImageReveal"
+import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 
 const team = [
   {
     name: "Mubiru Florence",
     role: "Lead Pastor",
     bio: "Visionary leader dedicated to community spiritual growth.",
-    image: "https://picsum.photos/seed/p1/400/500"
+    image: PlaceHolderImages.find(img => img.id === 'pastor-florence')?.imageUrl || "https://picsum.photos/seed/p1/400/500"
   },
   {
     name: "Kembabazi Rose",
     role: "Community Director",
     bio: "Passionate about outreach and local support programs.",
-    image: "https://picsum.photos/seed/p2/400/500"
+    image: PlaceHolderImages.find(img => img.id === 'director-rose')?.imageUrl || "/images/IMG_8891.jpg"
   },
   {
     name: "Sebalamu Geoffrey",
     role: "Creative Arts",
     bio: "Crafting modern worship experiences through media and art.",
-    image: "https://picsum.photos/seed/p3/400/500"
+    image: PlaceHolderImages.find(img => img.id === 'creative-geoffrey')?.imageUrl || "https://picsum.photos/seed/p3/400/500"
   }
 ]
 

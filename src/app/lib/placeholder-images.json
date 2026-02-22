@@ -30,6 +30,24 @@
       "description": "Open Bible on a wooden table",
       "imageUrl": "https://picsum.photos/seed/bible1/800/600",
       "imageHint": "open bible"
+    },
+    {
+      "id": "pastor-florence",
+      "description": "Mubiru Florence - Lead Pastor",
+      "imageUrl": "https://picsum.photos/seed/p1/400/500",
+      "imageHint": "pastor woman"
+    },
+    {
+      "id": "director-rose",
+      "description": "Kembabazi Rose - Community Director",
+      "imageUrl": "/images/IMG_8891.jpg",
+      "imageHint": "woman leader"
+    },
+    {
+      "id": "creative-geoffrey",
+      "description": "Sebalamu Geoffrey - Creative Arts",
+      "imageUrl": "https://picsum.photos/seed/p3/400/500",
+      "imageHint": "man creative"
     }
   ]
 }
