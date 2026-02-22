@@ -85,10 +85,8 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
               <ImageReveal 
-                src={visionImg?.imageUrl || "/images/_MG_9274.jpg"}
+                src={visionImg?.imageUrl || "/images/IMG_8950.jpg"}
                 alt="Our Vision"
-                width={800}
-                height={600}
                 className="rounded-lg shadow-2xl aspect-[4/3]"
               />
             </div>
