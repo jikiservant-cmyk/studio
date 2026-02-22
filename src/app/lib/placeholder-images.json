@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "hero-church",
-      "description": "Beautiful modern church building at sunset",
-      "imageUrl": "https://picsum.photos/seed/church1/1200/800",
-      "imageHint": "church building"
+      "description": "Our Vision - Building a better tomorrow",
+      "imageUrl": "/images/_MG_9274.jpg",
+      "imageHint": "church vision"
     },
     {
       "id": "live-stream",
